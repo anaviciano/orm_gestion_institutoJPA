@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Curso</th>
+    <th scope="col">Horas</th>
+    <th scope="col">Profesor</th>
+    <th scope="col">Alumnos</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="modulo : ${modulos}">
+    <th scope="row" th:text="${modulo.getId()}"></th>
+    <td th:text="${modulo.getNombre()}"></td>
+    <td th:text="${modulo.getCurso()}"></td>
+    <td th:text="${modulo.getHoras()}"></td>
+    <td th:text="${modulo.getProfesor()}"></td>
+    <td th:text="${modulo.getAlumnos()}"></td>
+    <!--<td th:text="${alumno.getModulos()}"></td>-->
+  </tr>
+  </tbody>
+</table>
+<p><a th:href="@{/modulos}">Volver</a></p>
+
+</body>
+</html>

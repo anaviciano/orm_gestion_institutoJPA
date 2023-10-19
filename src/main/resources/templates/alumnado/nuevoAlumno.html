@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+  <title th:text="${titulo}"></title>
+</head>
+<body>
+
+<h1 th:text="${titulo}"></h1>
+
+<form th:action="@{/alumnos}" th:object="${alumno}" method="post">
+  <div class="errorblock" th:if="${#fields.hasErrors('*')}">
+    <ul>
+      <li th:each="err : ${#fields.errors('*')}"
+          th:text="${err}">Input is incorrect</li>
+    </ul>
+  </div>
+  <fieldset>
+    <legend>Datos del alumno</legend>
+    <table>
+      <tr>
+        <td><label for="nombre">Nombre: </label></td>
+        <td><input id="nombre" type="text" name="nombre" th:field="*{nombre}" minlength="4" maxlength="12" required/></td>
+      </tr>
+      <tr>
+        <td><label for="primerApellido">Primer Apellido: </label></td>
+        <td><input id="primerApellido" type="text" name="primerApellido" th:field="*{apellidoUno}" required /></td>
+      </tr>
+      <tr>
+        <td><label for="segundoApellido">segundoApellido: </label></td>
+        <td><input id="segundoApellido" type="text" name="segundoApellido" th:field="*{apellidoDos}" required /></td>
+      </tr>
+      <tr>
+        <td><label for="nia">NIA: </label></td>
+        <td><input id="nia" type="text" name="nia" th:field="*{nia}" required /></td>
+      </tr>
+      <tr>
+        <td><label for="telefono">Telefono: </label></td>
+        <td><input id="telefono" type="text" name="telefono" th:field="*{telefono}" required /></td>
+      </tr>
+
+      <tr>
+        <td><button type="submit">Guardar Alumno</button></td>
+      </tr>
+    </table>
+  </fieldset>
+</form>
+<p><a th:href="@{/alumnos}">Volver</a></p>
+
+</body>
+</html>

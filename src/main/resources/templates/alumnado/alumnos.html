@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+
+<div>
+  <h1>APARTADO ALUMNADO</h1>
+  <h2>¿QUÉ QUIERES HACER?</h2>
+  <ul>
+    <li><a th:href="@{/alumnos/listarAlumnado}">Listar Alumnado</a></li>
+    <li><a th:href="@{/alumnos/nuevoAlumno}">Nuevo o Actualizar Alumnado</a></li>
+    <li><a th:href="@{/alumnos/borrarAlumno}">Borrar Alumnado</a></li>
+  </ul>
+    <p><a th:href="@{/}">Volver</a></p>
+</div>
+
+</body>
+</html>
